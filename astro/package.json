@@ -1,0 +1,23 @@
+{
+  "name": "dogfoodprices-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@algolia/autocomplete-js": "^1.9.2",
+    "@algolia/autocomplete-theme-classic": "^1.9.2",
+    "@astrojs/image": "^0.16.7",
+    "algoliasearch": "^4.17.0",
+    "astro": "^2.4.4",
+    "astro-sanity": "^1.1.7",
+    "bootstrap": "^5.2.3",
+    "remark-toc": "^8.0.1",
+    "sharp": "^0.32.1"
+  }
+}

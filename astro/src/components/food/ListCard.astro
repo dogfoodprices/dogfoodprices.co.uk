@@ -1,0 +1,38 @@
+---
+import type { FoodWithPriceList } from "src/utils/api/food";
+
+import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
+import { formatCurrency } from "../../utils/formatting";
+import { urlForImage } from "../../utils/image";
+
+interface Props {
+  food: FoodWithPriceList;
+}
+
+const {
+  food: {
+    brand,
+    name,
+    slug,
+    prices,
+    images,
+  },
+} = Astro.props;
+const bestPricePerKilo = sortPriceListPricesByPricePerKilo(prices)[0].perKilo;
+const imageHeight = 153;
+---
+
+<div class="col-lg-4 col-md-4 col-sm-6">
+  <div class="collection-card">
+    <div class="collection-img">
+      <img class="img-gluid" src={urlForImage(images?.front, imageHeight)} alt=`Front packaging for ${name}` />
+    </div>
+    <div class="collection-content text-center">
+      <h4><a href={`/food/${slug}/`}>{name}</a></h4>
+      <h5>{brand.name}</h5>
+      <div class="price">
+        <h6>From {formatCurrency(bestPricePerKilo)} per kg</h6>
+      </div>
+    </div>
+  </div>
+</div>

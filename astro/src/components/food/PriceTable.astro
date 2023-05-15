@@ -1,0 +1,28 @@
+---
+import type { PriceListPrice } from "../../utils/api/food";
+import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
+import PriceTableRow from "./PriceTableRow.astro";
+
+interface Props {
+  prices: PriceListPrice[];
+}
+
+const { prices } = Astro.props;
+const pricesByKilo = sortPriceListPricesByPricePerKilo(prices);
+---
+
+<table class="eg-table table cart-table">
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Price</th>
+      <th>Per kg</th>
+      <th>Notes</th>
+      <th>Shop</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {pricesByKilo.map((price) => <PriceTableRow price={price} />)}
+  </tbody>
+</table>

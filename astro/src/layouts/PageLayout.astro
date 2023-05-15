@@ -1,0 +1,19 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const {
+  frontmatter: { title },
+} = Astro.props;
+---
+
+<BaseLayout pageTitle={title}>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="genarel-qustions-area mb-100">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

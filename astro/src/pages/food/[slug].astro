@@ -1,0 +1,25 @@
+---
+import FoodLayout from "@layouts/food/SingleLayout.astro";
+import { FoodWithPriceList, allFood } from "../../utils/api/food";
+
+interface Props extends FoodWithPriceList {}
+
+export async function getStaticPaths() {
+  const allFoodData = await allFood();
+
+  return allFoodData.map((food) => {
+    return {
+      params: {
+        slug: food.slug,
+      },
+      props: food,
+    };
+  });
+}
+
+const { brand, name } = Astro.props;
+const pageTitle = `${brand.name} ${name}`;
+const food = Astro.props;
+---
+
+<FoodLayout pageTitle={pageTitle} food={food} />

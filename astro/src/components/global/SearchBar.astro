@@ -1,0 +1,87 @@
+---
+import "@algolia/autocomplete-theme-classic";
+const indexName = import.meta.env.ALGOLIA_INDEX;
+---
+
+<style>
+  :root {
+    --aa-icon-size: 80px !important;
+  }
+</style>
+
+<div class="container">
+  <div class="row mb-60">
+    <div class="col-lg-12">
+      <div id="autocomplete" data-index-name={indexName}></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import algoliasearch from "algoliasearch/lite";
+  import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js";
+
+  const searchClient = algoliasearch(
+    "28QBUVRH0M",
+    "3b826e1fdb6135cc7b7b54c24caea2d7"
+  );
+  const indexName = document.getElementById('autocomplete').dataset.indexName;
+
+  autocomplete({
+    container: "#autocomplete",
+    placeholder: "Search for products",
+    getSources({ query }) {
+      return [
+        {
+          sourceId: "home",
+          getItems() {
+            return getAlgoliaResults({
+              searchClient,
+              queries: [
+                {
+                  indexName: indexName,
+                  query,
+                  params: {
+                    hitsPerPage: 5,
+                    snippetEllipsisText: "…",
+                  },
+                },
+              ],
+            });
+          },
+          getItemUrl({ item }) {
+            return item.slug;
+          },
+          onSelect({ item }) {
+            const { protocol, host } = document.location;
+            const resultUrl = `${protocol}//${host}${item.slug}`;
+            document.location.assign(resultUrl);
+          },
+          templates: {
+            item({ item: { image, name, brand, priceFrom }, html }) {
+              return html`
+                <div class="aa-ItemWrapper">
+                  <div class="aa-ItemContent">
+                    <div class="aa-ItemIcon aa-ItemIcon--alignTop">
+                      <img
+                        src="${image}"
+                        alt="${name}"
+                        width="80"
+                        height="80"
+                      />
+                    </div>
+                    <div class="aa-ItemContentBody">
+                      <div class="aa-ItemContentTitle">${name}</div>
+                      <div class="aa-ItemContentDescription">${brand}</div>
+                      <div class="aa-ItemContentDescription">${priceFrom}</div>
+                    </div>
+                  </div>
+                </div>
+              `;
+            },
+          },
+        },
+      ];
+    },
+  });
+</script>

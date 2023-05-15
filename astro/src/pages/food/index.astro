@@ -1,0 +1,8 @@
+---
+import ListLayout from "@layouts/food/ListLayout.astro";
+import { allFood } from "../../utils/api/food";
+
+const allFoodData = await allFood();
+---
+
+<ListLayout food={allFoodData} />

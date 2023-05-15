@@ -1,0 +1,26 @@
+---
+import SearchBar from "@components/global/SearchBar.astro";
+import ImageGallery from "@components/food/ImageGallery.astro";
+import ProductInformation from "@components/food/ProductInformation.astro";
+import type { FoodWithPriceList } from "../../utils/api/food";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+interface Props {
+  pageTitle: string;
+  food: FoodWithPriceList;
+}
+
+const { pageTitle, food } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <SearchBar />
+  <div class="shop-details-page mb-120">
+    <div class="container">
+      <div class="row g-lg-4 gy-5 mb-120">
+        <ImageGallery front={food.images?.front} back={food.images?.back} />
+        <ProductInformation food={food} />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

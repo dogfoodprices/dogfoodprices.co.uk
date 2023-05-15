@@ -1,0 +1,38 @@
+---
+import type { FoodWithPriceList } from "../../utils/api/food";
+import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
+import { formatCurrency } from "../../utils/formatting";
+import PriceTable from "./PriceTable.astro";
+
+interface Props {
+  food: FoodWithPriceList;
+}
+
+const {
+  food: { brand, name, prices },
+} = Astro.props;
+const bestPricePerKilo = sortPriceListPricesByPricePerKilo(prices)[0].perKilo;
+---
+
+<style>
+  .price-tag > h4 {
+    /* Specificity of CSS from template is *really* high so it's shorter to !important 
+    the rule */
+    font-size: 2rem !important;
+  }
+</style>
+
+<div class="col-lg-6">
+  <div class="shop-details-content">
+    <h3>{name}</h3>
+    <div class="model-number">
+      <span>{brand.name}</span>
+    </div>
+    <div class="price-tag">
+      <h4>from {formatCurrency(bestPricePerKilo)} per kg</h4>
+    </div>
+    <div>
+      <PriceTable prices={prices} />
+    </div>
+  </div>
+</div>
