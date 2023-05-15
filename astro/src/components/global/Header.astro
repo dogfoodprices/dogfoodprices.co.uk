@@ -1,8 +1,15 @@
 ---
+import logo from "../../assets/svg/logo.svg";
+import { Image } from "@astrojs/image/components";
 ---
+
 <style>
   a {
     text-decoration: none !important;
+  }
+
+  header.style-2 .header-logo img {
+    min-width: fit-content;
   }
 </style>
 
@@ -12,10 +19,12 @@
   >
     <div class="header-logo">
       <a href="/"
-        ><img
-          alt="image"
+        ><Image
+          alt="Logo"
           class="img-fluid"
-          src="assets/images/header2-logo.svg"
+          src={logo.src}
+          height={37}
+          width={37}
         /></a
       >
     </div>
@@ -25,7 +34,13 @@
       >
         <div class="mobile-logo-wrap">
           <a href="/"
-            ><img alt="image" src="assets/images/header2-logo.svg" /></a
+            ><Image
+              alt="Logo"
+              class="img-fluid"
+              src={logo.src}
+              height={37}
+              width={37}
+            /></a
           >
         </div>
         <div class="menu-close-btn">
@@ -99,7 +114,6 @@
         </form>
       </div>
     </div>
-    <div class="nav-right d-flex jsutify-content-end align-items-center">
-    </div>
+    <div class="nav-right d-flex jsutify-content-end align-items-center"></div>
   </div>
 </header>
