@@ -1,6 +1,4 @@
 ---
-import logo from "../../assets/svg/logo.svg";
-import { Image } from "@astrojs/image/components";
 ---
 
 <style>
@@ -9,7 +7,8 @@ import { Image } from "@astrojs/image/components";
   }
 
   header.style-2 .header-logo img {
-    min-width: fit-content !important;
+    min-width: auto !important;
+    height: auto !important;
   }
 </style>
 
@@ -19,12 +18,12 @@ import { Image } from "@astrojs/image/components";
   >
     <div class="header-logo">
       <a href="/"
-        ><Image
+        ><img
           alt="Logo"
           class="img-fluid"
-          src={logo.src}
-          height={37}
-          width={37}
+          src="/favicon.svg"
+          height="37"
+          width="37"
         /></a
       >
     </div>
@@ -34,12 +33,12 @@ import { Image } from "@astrojs/image/components";
       >
         <div class="mobile-logo-wrap">
           <a href="/"
-            ><Image
+            ><img
               alt="Logo"
               class="img-fluid"
-              src={logo.src}
-              height={37}
-              width={37}
+              src="/favicon.svg"
+              height="37"
+              width="37"
             /></a
           >
         </div>
