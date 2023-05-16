@@ -9,7 +9,17 @@ const indexName = import.meta.env.ALGOLIA_INDEX;
   }
 </style>
 
-<div class="container">
+<style is:global>
+  /* 
+    Does NOT apply to home page.
+    Has to be global because <header> is a different component.
+  */
+  header + #search-bar {
+    margin-top: 40px;
+  }
+</style>
+
+<div id="search-bar" class="container">
   <div class="row mb-60">
     <div class="col-lg-12">
       <div id="autocomplete" data-index-name={indexName}></div>
@@ -25,7 +35,7 @@ const indexName = import.meta.env.ALGOLIA_INDEX;
     "28QBUVRH0M",
     "3b826e1fdb6135cc7b7b54c24caea2d7"
   );
-  const indexName = document.getElementById('autocomplete').dataset.indexName;
+  const indexName = document.getElementById("autocomplete").dataset.indexName;
 
   autocomplete({
     container: "#autocomplete",
