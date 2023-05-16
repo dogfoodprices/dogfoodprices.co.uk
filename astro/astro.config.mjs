@@ -3,10 +3,12 @@ import sanity from "astro-sanity";
 import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
 import remarkToc from "remark-toc";
+import sitemap from "@astrojs/sitemap";
 const { SANITY_READ_TOKEN } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://dogfoodprices.co.uk",
   experimental: {
     // assets: true,
   },
@@ -25,5 +27,6 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
+    sitemap(),
   ],
 });
