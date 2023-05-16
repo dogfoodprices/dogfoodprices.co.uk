@@ -1,1 +1,4 @@
 scooby-template/
+
+# Local Netlify folder
+.netlify
