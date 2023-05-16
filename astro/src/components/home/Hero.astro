@@ -1,10 +1,9 @@
 ---
 import backgroundImage from "@assets/images/hero/banner-bg.png";
 import bannerImage from "@assets/images/hero/banner-image.png";
-import marqueeFoot from "@assets/svg/marquee-foot.svg";
-const backgroundImageCss = `url(${backgroundImage.src})`;
-
 import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+const backgroundImageCss = `url(${backgroundImage.src})`;
 ---
 
 <style define:vars={{ backgroundImageCss }}>
@@ -15,14 +14,32 @@ import { Image } from "@astrojs/image/components";
   .hero3 .hero-wrapper {
     background-image: var(--backgroundImageCss) !important;
   }
+
+  [astro-icon="marquee-foot"] {
+    margin-left: 20px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    height: 35px;
+    width: 35px;
+  }
+
+  .marquee_text {
+    text-align: center;
+  }
+
+  @media (max-width: 576px) {
+    [astro-icon="marquee-foot"] {
+      display: none;
+    }
+  }
 </style>
 
 <div class="hero3 mb-120">
   <div class="background-text">
     <h2 class="marquee_text">
-      <Image src={marqueeFoot.src} height={35} width={35} alt="" />
-      Save up to 30% on the RRP
-      <Image src={marqueeFoot.src} height={35} width={35} alt="" />
+      <Icon name="marquee-foot" />
+      Save up to 15% on RRP
+      <Icon name="marquee-foot" />
     </h2>
   </div>
   <div class="swiper hero3-slider">
