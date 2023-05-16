@@ -1356,12 +1356,12 @@ header.style-1.sticky {
 header.style-1 .header-logo {
   padding: 10px 0px;
 }
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   header.style-1 .header-logo {
     width: 100px;
     padding: 20px 0;
   }
-}
+} */
 header.style-1 .header-logo img {
   min-width: 120px;
   max-width: 100%;
@@ -1714,7 +1714,7 @@ header.style-1 .main-menu ul > li.active::after {
 header.style-1 .main-menu ul li.menu-item-has-children > i {
   display: block;
 }
-@media only screen and (max-width: 991px) {
+/* @media only screen and (max-width: 991px) {
   header.style-1 .main-menu {
     position: fixed;
     top: 0;
@@ -1845,7 +1845,7 @@ header.style-1 .main-menu ul li.menu-item-has-children > i {
     bottom: 50%;
     margin-bottom: -1px;
   }
-}
+} */
 
 header.style-2 {
   position: relative;
@@ -2279,7 +2279,7 @@ header.style-2 .main-menu ul > li.active::after {
 header.style-2 .main-menu ul li.menu-item-has-children > i {
   display: block;
 }
-@media only screen and (max-width: 991px) {
+/* @media only screen and (max-width: 991px) {
   header.style-2 .main-menu {
     position: fixed;
     top: 0;
@@ -2366,7 +2366,7 @@ header.style-2 .main-menu ul li.menu-item-has-children > i {
     border-radius: 50%;
     display: inline-block;
   }
-}
+} */
 
 header.style-3 {
   position: relative;
