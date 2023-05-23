@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "algolia:generate-json": "ts-node-esm -T src/utils/algolia/generateJson.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.9.2",
@@ -23,6 +24,8 @@
     "sharp": "^0.32.1"
   },
   "devDependencies": {
-    "netlify-cli": "^15.1.0"
+    "dotenv": "^16.0.3",
+    "netlify-cli": "^15.1.0",
+    "ts-node": "^10.9.1"
   }
 }

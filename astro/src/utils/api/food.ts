@@ -1,8 +1,4 @@
 import { useSanityClient, groq } from "astro-sanity";
-import { sortPriceListPricesByPricePerKilo } from "../collections";
-import { formatCurrency } from "../formatting";
-import { imageBuilder } from "../image";
-import fs from 'node:fs/promises';
 
 interface SellerPrice {
   weight: number;
@@ -113,24 +109,4 @@ export async function allFood(): Promise<FoodWithPriceList[]> {
 
     return food;
   });
-}
-
-export async function allFoodForAlgolia() {
-  const foods = await allFood()
-
-  const records = foods.map((food) => {
-    const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices)[0].perKilo;
-
-    return {
-      objectID: food.id,
-      brand: food.brand.name,
-      name: food.name,
-      priceFrom: `From ${formatCurrency(bestPricePerKilo)} per kg`,
-      slug: `/food/${food.slug}/`,
-      image: food.images?.front ? imageBuilder.image(food.images.front).size(80, 80).ignoreImageParams().url() : '',
-    }
-  })
-
-
-  fs.writeFile('./algolia.json', JSON.stringify(records))
 }
