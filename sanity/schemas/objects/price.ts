@@ -37,7 +37,19 @@ export default {
       name: 'url',
       title: 'URL',
       type: 'string'
-    }
+    },
+    {
+      name: 'lastChecked',
+      title: 'Last checked',
+      type: 'date',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'lastChanged',
+      title: 'Last changed',
+      type: 'date',
+      validation: Rule => Rule.required()
+    },
   ],
   preview: {
     select: {
