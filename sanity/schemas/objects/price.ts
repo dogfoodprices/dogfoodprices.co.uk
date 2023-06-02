@@ -42,13 +42,13 @@ export default {
       name: 'lastChecked',
       title: 'Last checked',
       type: 'date',
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required().warning()
     },
     {
       name: 'lastChanged',
       title: 'Last changed',
       type: 'date',
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required().warning()
     },
   ],
   preview: {
