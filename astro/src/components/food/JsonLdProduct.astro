@@ -1,0 +1,56 @@
+---
+import type { FoodWithPriceList } from 'src/utils/api/food';
+import _ from "lodash"
+import {imageBuilder} from "../../utils/image"
+
+interface Props {
+  food: FoodWithPriceList
+}
+
+const {food} = Astro.props
+
+const lowestPrice = _.sortBy(food.prices, ['price']).at(0)?.price;
+const highestPrice = _.sortBy(food.prices, ['price']).reverse().at(0)?.price
+const frontImageUrl = food.images?.front ? imageBuilder
+            .image(food.images.front)
+            .maxHeight(800)
+            .ignoreImageParams()
+            .url() : ''
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": food.name,
+    "image": [
+      frontImageUrl,
+    ],
+    "description": `${food.brand.name} ${food.name}`,
+    "brand": {
+      "@type": "Brand",
+      "name": food.brand.name,
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "offerCount": food.prices.length,
+      "lowPrice": lowestPrice,
+      "highPrice": highestPrice,
+      "priceCurrency": "GBP",
+      "offers": food.prices
+      .filter((price) => price.price)
+      .map((price) => {
+        return {
+          "@type": "Offer",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": price.price,
+            "priceCurrency": "GBP",
+            "referenceQuantity": {
+              "unitCode": "KGM",
+              "value": price.weight,
+            },
+          },
+        }
+      }),
+    }
+  })}/>
