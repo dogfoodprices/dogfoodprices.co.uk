@@ -1,19 +1,31 @@
 ---
-import SearchBar from "@components/global/SearchBar.astro";
 import ImageGallery from "@components/food/ImageGallery.astro";
 import ProductInformation from "@components/food/ProductInformation.astro";
-import type { FoodWithPriceList } from "../../utils/api/food";
+import SearchBar from "@components/global/SearchBar.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { formatCurrency } from "src/utils/formatting";
+import type { FoodWithPriceList } from "../../utils/api/food";
+import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
 
 interface Props {
-  pageTitle: string;
   food: FoodWithPriceList;
 }
 
-const { pageTitle, food } = Astro.props;
+const {food} = Astro.props;
+
+const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices).at(0)?.perKilo;
+let pageTitle = `${food.brand.name} ${food.name}`
+if (bestPricePerKilo) {
+  pageTitle = `${pageTitle} from ${formatCurrency(bestPricePerKilo)} per kg`
+}
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout 
+  seo={{
+    title: pageTitle,
+    description: `Find the cheapeast place to buy ${food.brand.name} ${food.name} online`
+  }}
+>
   <SearchBar />
   <div class="shop-details-page mb-120">
     <div class="container">

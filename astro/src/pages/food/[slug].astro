@@ -1,8 +1,6 @@
 ---
 import FoodLayout from "@layouts/food/SingleLayout.astro";
 import { FoodWithPriceList, allFood } from "../../utils/api/food";
-import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
-import { formatCurrency } from "src/utils/formatting";
 
 interface Props extends FoodWithPriceList {}
 
@@ -19,14 +17,7 @@ export async function getStaticPaths() {
   });
 }
 
-const { brand, name, } = Astro.props;
 const food = Astro.props;
-const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices).at(0)?.perKilo;
-let pageTitle = `${brand.name} ${name}`
-if (bestPricePerKilo) {
- pageTitle = `${pageTitle} from ${formatCurrency(bestPricePerKilo)} per kg`
-}
-
 ---
 
-<FoodLayout pageTitle={pageTitle} food={food} />
+<FoodLayout food={food} />

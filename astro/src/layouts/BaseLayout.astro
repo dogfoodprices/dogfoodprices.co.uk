@@ -3,27 +3,35 @@ import Header from "@components/global/Header.astro";
 import Footer from "@components/global/Footer.astro";
 import "@bootstrap/dist/css/bootstrap.min.css";
 import "../styles/style.css";
+import { SEO } from "astro-seo";
+import type { Props as SEOProps } from 'astro-seo'
 
 interface Props {
-  pageTitle: string | null | undefined;
+  seo?: Partial<SEOProps>
 }
 
-const standardTitle = "Dog Food Prices: Find the best prices for your pooch's favourite food"
-let { pageTitle = standardTitle } = Astro.props;
-
-if (pageTitle !== standardTitle) {
-  pageTitle = `${pageTitle} · Dog Food Prices`
-}
+const {seo} = Astro.props
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="sitemap" href="/sitemap-index.xml">
-    <title>{pageTitle}</title>
+    <SEO
+      title="Find the best prices for your pooch's favourite food"
+      titleTemplate="%s · Dog Food Prices"
+      description="Find the best deals for quality dog food from brands like ACANA, AATU, and Orijen"
+      charset="utf-8"
+      extend={{
+        meta: [
+          {name: "viewport", content: "width=device-width"},
+          {name: "generator", content: Astro.generator},
+        ],
+        link: [
+          {rel: "icon", type: "image/svg+xml", href: "/favicon.svg"},
+          {rel: "sitemap", href: "/sitemap-index.xml"},
+        ]
+      }}
+      {...seo}
+    />
   </head>
   <body>
     <Header />

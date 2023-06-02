@@ -8,11 +8,15 @@ interface Props {
   food: FoodWithPriceList[];
 }
 
-const pageTitle = "All brands and food"
 const { food } = Astro.props;
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout 
+  seo={{
+    title: "All brands and food",
+    
+  }}
+>
   <SearchBar />
   <div class="shop-page">
     <div class="container">
