@@ -9,6 +9,7 @@ const { SANITY_READ_TOKEN } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 // https://astro.build/config
 export default defineConfig({
   site: "https://dogfoodprices.co.uk",
+  compressHTML: true,
   experimental: {
     // assets: true,
   },
