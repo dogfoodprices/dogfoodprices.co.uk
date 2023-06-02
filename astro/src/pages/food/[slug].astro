@@ -21,8 +21,12 @@ export async function getStaticPaths() {
 
 const { brand, name, } = Astro.props;
 const food = Astro.props;
-const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices)[0].perKilo;
-const pageTitle = `${brand.name} ${name} from ${formatCurrency(bestPricePerKilo)} per kg`;
+const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices).at(0)?.perKilo;
+let pageTitle = `${brand.name} ${name}`
+if (bestPricePerKilo) {
+ pageTitle = `${pageTitle} from ${formatCurrency(bestPricePerKilo)} per kg`
+}
+
 ---
 
 <FoodLayout pageTitle={pageTitle} food={food} />

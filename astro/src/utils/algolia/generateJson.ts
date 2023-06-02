@@ -19,7 +19,11 @@ const imageBuilder = imageUrlBuilder(client)
 // Temporarily(?) compied from food.ts because the Sanity client is only
 // initialised when running via Astro.
 async function allFood(): Promise<FoodWithPriceList[]> {
-  const filter = `*[_type == "food" && !(_id in path("drafts.**"))]`;
+  const filter = `*[
+    _type == "food" && 
+    count(sellers[].prices[price != null]) > 0 &&
+    !(_id in path("drafts.**"))
+  ]`;
   const order = ``;
   const projection = `{
     "id": _id,
@@ -33,7 +37,7 @@ async function allFood(): Promise<FoodWithPriceList[]> {
       "seller": sellerDetails-> {
           name
       },
-      prices[price != null] {
+      prices[] {
         weight,
         type,
         url,
@@ -75,14 +79,13 @@ async function allFoodForAlgolia() {
   const foods = await allFood();
 
   const records = foods.map((food) => {
-    const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices)[0]
-      .perKilo;
+    const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices).at(0)?.perKilo;
 
     return {
       objectID: food.id,
       brand: food.brand.name,
       name: food.name,
-      priceFrom: `From ${formatCurrency(bestPricePerKilo)} per kg`,
+      priceFrom: bestPricePerKilo ? `From ${formatCurrency(bestPricePerKilo)} per kg` : 'Out of stock',
       slug: `/food/${food.slug}/`,
       image: food.images?.front
         ? imageBuilder

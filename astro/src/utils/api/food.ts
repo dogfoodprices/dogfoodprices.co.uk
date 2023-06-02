@@ -73,7 +73,7 @@ export async function allFood(): Promise<FoodWithPriceList[]> {
       "seller": sellerDetails-> {
           name
       },
-      prices[price != null] {
+      prices[] {
         weight,
         type,
         url,

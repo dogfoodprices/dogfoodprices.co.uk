@@ -18,7 +18,7 @@ const {
     images,
   },
 } = Astro.props;
-const bestPricePerKilo = sortPriceListPricesByPricePerKilo(prices)[0].perKilo;
+const bestPricePerKilo = sortPriceListPricesByPricePerKilo(prices).at(0)?.perKilo;
 const imageHeight = 153;
 ---
 
@@ -31,7 +31,10 @@ const imageHeight = 153;
       <h4><a href={`/food/${slug}/`}>{name}</a></h4>
       <h5>{brand.name}</h5>
       <div class="price">
-        <h6>From {formatCurrency(bestPricePerKilo)} per kg</h6>
+        {bestPricePerKilo &&
+          <h6>From {formatCurrency(bestPricePerKilo)} per kg</h6>
+        ||
+        <h6>Out of stock</h6>}
       </div>
     </div>
   </div>

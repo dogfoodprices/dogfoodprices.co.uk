@@ -1,6 +1,10 @@
 ---
 import type { PriceListPrice } from "../../utils/api/food";
-import { formatCurrency, formatNotes, formatTotalWeight } from "../../utils/formatting";
+import {
+  formatCurrency,
+  formatNotes,
+  formatTotalWeight,
+} from "../../utils/formatting";
 
 interface Props {
   price: PriceListPrice;
@@ -13,11 +17,13 @@ const { price } = Astro.props;
   <td data-label="Weight">
     {formatTotalWeight(price.quantity, price.weight)}
   </td>
-  <td data-label="Price">{formatCurrency(price.price)}</td>
-  <td data-label="Per kg">{formatCurrency(price.perKilo)}</td>
+  <td data-label="Price"
+    >{(price.price && formatCurrency(price.price)) || "Out of stock"}</td
+  >
+  <td data-label="Per kg"
+    >{(price.price && formatCurrency(price.perKilo)) || "-"}</td
+  >
   <td data-label="Notes">{formatNotes(price.notes)}</td>
   <td data-label="Shop">{price.shop}</td>
-  <td data-label="Buy">
-    <a href={price.url}>Buy</a>
-  </td>
+  <td data-label="Buy">{(price.price && <a href={price.url}>Buy</a>) || ""}</td>
 </tr>
