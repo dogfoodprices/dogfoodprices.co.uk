@@ -3,7 +3,7 @@ layout: ../layouts/PageLayout.astro
 title: Privacy policy
 ---
 
-This is privacy notice of DogFoodPrices.
+This is privacy notice of Dog Food Prices.
 
 We respect your privacy and are determined to protect your personal data. The purpose of this privacy notice is to inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from). We’ll also tell you about your privacy rights and how data protection law protects you.
 
@@ -22,7 +22,7 @@ You must read this privacy notice together with any other privacy notice we may 
 
 ### Data controller
 
-DogFoodPrices is the controller and responsible for your personal data (collectively referred to as "DogFoodPrices", "we", "us" or "our" in this privacy notice). Our contact details are legal@dogfoodprices.co.uk. For all data matters contact legal@dogfoodprices.co.uk.
+Dog Food Prices is the controller and responsible for your personal data (collectively referred to as "Dog Food Prices", "we", "us" or "our" in this privacy notice). Our contact details are legal@dogfoodprices.co.uk. For all data matters contact legal@dogfoodprices.co.uk.
 
 ### Third-party links outside of our control
 

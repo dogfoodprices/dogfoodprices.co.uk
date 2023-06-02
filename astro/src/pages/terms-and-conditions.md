@@ -22,7 +22,7 @@ Our [Cookie Policy](/cookie-policy/), which sets out information about the cooki
 
 ## Information About Us
 
-dogfoodprices.co.uk is a site operated by DogFoodPrices ("We").
+dogfoodprices.co.uk is a site operated by Dog Food Prices ("We").
 
 ## Changes To These Terms
 
