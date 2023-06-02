@@ -7,10 +7,9 @@ This is privacy notice of Dog Food Prices.
 
 We respect your privacy and are determined to protect your personal data. The purpose of this privacy notice is to inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from). We’ll also tell you about your privacy rights and how data protection law protects you.
 
-This privacy notice is provided in a layered format so you can click through to the specific areas set out below. 
+This privacy notice is provided in a layered format so you can click through to the specific areas set out below.
 
 ## Table of contents
-
 
 ## Who We Are And Important Information
 
@@ -26,7 +25,7 @@ Dog Food Prices is the controller and responsible for your personal data (collec
 
 ### Third-party links outside of our control
 
-This website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements. 
+This website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements.
 
 When you leave our website, we encourage you to read the privacy notice of every website you visit.
 
@@ -44,7 +43,7 @@ We may collect, use, store and transfer different kinds of personal data about y
 
 We do not collect any **Special Categories of Personal Data** about you (this includes details about your race or ethnicity, religious or philosophical beliefs, sex life, sexual orientation, political opinions, trade union membership, information about your health and genetic and biometric data). Nor do we collect any information about criminal convictions and offences.
 
-### If you fail to provide personal data 
+### If you fail to provide personal data
 
 Where we need to collect your personal data by law, or under the terms of a contract we have with you and you fail to provide that data when requested, we may not be able to perform the contract we have or are trying to enter into with you (for example, to provide you with goods or services). In this case, we may have to cancel a product or service you have with us but we will notify you if this is the case at the time.
 
@@ -55,16 +54,18 @@ We use different methods to collect data from and about you including through:
 - **Automated technologies or interactions.** As you interact with our website, we may automatically collect Technical Data about your equipment, browsing actions and patterns. We collect this personal data by using cookies and other similar technologies. Please see our [cookie policy](/cookie-policy/) for further details.
 
 - **Directly.** You may give us your identity, and contact details by filling in forms or by corresponding with us by email or otherwise. This includes personal data you provide when you:
-  
-    - Enter details in a contact form on this website.
-  
-    - Send an email to any address ending with @dogfoodprices.co.uk.
+
+  - Enter details in a contact form on this website.
+
+  - Send an email to any address ending with @dogfoodprices.co.uk.
 
 - **Third parties or publicly available sources.** We may receive personal data about you from various third parties as set out below:
 
-    - Technical Data from the following parties:
-        
-        - Search information providers such as Algolia outside the UK.
+  - Technical Data from the following parties:
+    - [Algolia, Inc.](https://www.algolia.com), a search information provider, outside the UK.
+
+  - Usage Data from the following parties:
+    - [Umami Software, Inc.](https://umami.is), a website analytics provider, outside the UK.
 
 ## How We Use Your Personal Data
 
@@ -78,13 +79,13 @@ We will only use your personal data when the law allows us to. Most commonly, we
 
 ### Purposes for which we will use your personal data
 
-We have set out below, in a table format, a description of all the ways we plan to use your personal data, with the legal bases we rely on to do so. 
+We have set out below, in a table format, a description of all the ways we plan to use your personal data, with the legal bases we rely on to do so.
 
 Note that we may process your personal data for more than one lawful ground depending on the specific purpose for which we are using your data. Please contact us at legal@dogfoodprices.co.uk if you need details about the specific legal ground we are relying on to process your personal data where more than one ground has been set out in the table below.
 
 **To use data analytics to improve our website, products/services, marketing, customer relationships and experiences**
 
-- (a) Technical;  (b) Usage
+- (a) Technical; (b) Usage
 
 - Necessary for our legitimate interests (to define types of customers for our products and services, to keep our website updated and relevant, to develop our business and to inform our marketing strategy)
 
@@ -106,6 +107,7 @@ If we need to use your personal data for an unrelated purpose, we will notify yo
 Please note that we may process your personal data without your knowledge or consent, in compliance with the above rules, where this is required or permitted by law.
 
 ## Who We Share Your Personal Data With
+
 We may have to share your personal data with the parties set out below for the purposes set out in in [Purposes for which we will use your personal data](#purposes-for-which-we-will-use-your-personal-data), above.
 
 We require all third parties to respect the security of your personal data and to treat it in accordance with the law. We do not allow our third-party service providers to use your personal data for their own purposes and only permit them to process your personal data for specified purposes and in accordance with our instructions.
@@ -132,7 +134,7 @@ In some circumstances we may anonymise your personal data (so that it can no lon
 
 ## Your Legal Rights
 
-Unless subject to an exemption under the data protection laws, you have the following rights with respect to your personal data: 
+Unless subject to an exemption under the data protection laws, you have the following rights with respect to your personal data:
 
 - The right to request a copy of the personal data which we hold about you;
 
@@ -140,13 +142,13 @@ Unless subject to an exemption under the data protection laws, you have the foll
 
 - The right to request your personal data is erased where it is no longer necessary to retain such data;
 
-- The right to withdraw your consent to the processing at any time, where consent was the lawful basis for processing your data; 
+- The right to withdraw your consent to the processing at any time, where consent was the lawful basis for processing your data;
 
-- The right to request that we provide you with your personal data and where possible, to transmit that data directly to another data controller, (known as the right to data portability), where applicable (i.e. where our processing is based on consent or is necessary for the performance of our contract with you or where we process your data by automated means); 
+- The right to request that we provide you with your personal data and where possible, to transmit that data directly to another data controller, (known as the right to data portability), where applicable (i.e. where our processing is based on consent or is necessary for the performance of our contract with you or where we process your data by automated means);
 
 - The right, where there is a dispute in relation to the accuracy or processing of your personal data, to request a restriction is placed on further processing;
 
-- The right to object to our processing of personal data, where applicable i.e. where processing is based on our legitimate interests (or in performance of a task in the public interest/exercise of official authority); direct marketing or processing for the purposes of scientific/historical research and statistics). 
+- The right to object to our processing of personal data, where applicable i.e. where processing is based on our legitimate interests (or in performance of a task in the public interest/exercise of official authority); direct marketing or processing for the purposes of scientific/historical research and statistics).
 
 If you wish to exercise any of the rights set out above, please email legal@dogfoodprices.co.uk
 
