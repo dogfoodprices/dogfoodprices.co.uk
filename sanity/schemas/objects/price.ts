@@ -59,12 +59,18 @@ export default {
       price: 'price'
     },
     prepare({weight, quantity, type, price}) {
+      if (!price) {
+        price = 'Out of stock'
+      } else {
+        price = `£${price}`
+      }
+
       let quantityDisplay = '';
       if (quantity > 1) {
         quantityDisplay = `${quantity} x `;
       }
       return {
-        title: `${quantityDisplay}${weight}kg · £${price}`,
+        title: `${quantityDisplay}${weight}kg · ${price}`,
         subtitle: type
       };
     }
