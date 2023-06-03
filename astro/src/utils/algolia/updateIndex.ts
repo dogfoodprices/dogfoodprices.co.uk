@@ -3,10 +3,13 @@ import type { Food, FoodWithPriceList, PriceListPrice } from "../api/food.js";
 import { sortPriceListPricesByPricePerKilo } from "../collections.js";
 import { formatCurrency } from "../formatting.js";
 import imageUrlBuilder from '@sanity/image-url'
-import fs from "node:fs/promises";
 import 'dotenv/config'
+import algoliasearch from 'algoliasearch';
 
-const client = createClient({
+const algolia = algoliasearch(process.env.ALGOLIA_APPLICATION_ID, process.env.ALGOLIA_API_KEY);
+const index = algolia.initIndex(process.env.ALGOLIA_INDEX);
+
+const sanity = createClient({
   projectId: "9vyslszl",
   dataset: "production",
   apiVersion: "2023-05-01",
@@ -14,7 +17,7 @@ const client = createClient({
   token: process.env.SANITY_READ_TOKEN,
 })
 
-const imageBuilder = imageUrlBuilder(client)
+const imageBuilder = imageUrlBuilder(sanity)
 
 // Temporarily(?) compied from food.ts because the Sanity client is only
 // initialised when running via Astro.
@@ -47,7 +50,7 @@ async function allFood(): Promise<FoodWithPriceList[]> {
     }
 }`;
   const query = [filter, order, projection].join("\n");
-  const allFood: Food[] = await client.fetch(query);
+  const allFood: Food[] = await sanity.fetch(query);
 
   return allFood.map((food) => {
     let prices: PriceListPrice[] = [];
@@ -97,7 +100,7 @@ async function allFoodForAlgolia() {
     };
   });
 
-  fs.writeFile("./algolia.json", JSON.stringify(records));
+  await index.saveObjects(records)
 }
 
 await allFoodForAlgolia()

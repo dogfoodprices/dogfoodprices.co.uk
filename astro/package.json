@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "algolia:generate-json": "ts-node-esm -T src/utils/algolia/generateJson.ts"
+    "netlify:build": "npm run build && npm run algolia:update-index",
+    "algolia:update-index": "ts-node-esm -T src/utils/algolia/updateIndex.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.9.2",
