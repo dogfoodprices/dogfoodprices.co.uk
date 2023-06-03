@@ -4,6 +4,7 @@ import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
 import remarkToc from "remark-toc";
 import sitemap from "@astrojs/sitemap";
+import purgecss from "astro-purgecss";
 const { SANITY_READ_TOKEN } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 // https://astro.build/config
@@ -29,5 +30,6 @@ export default defineConfig({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
     sitemap(),
+    purgecss(),
   ],
 });
