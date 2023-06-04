@@ -8,8 +8,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "netlify:build": "npm run build && npm run algolia:update-index",
-    "algolia:update-index": "ts-node-esm -T src/utils/algolia/updateIndex.ts"
+    "algolia:update-index": "ts-node-esm -T src/utils/algolia/updateIndex.ts",
+    "check:links": "lychee --offline --base ./dist/ ./dist/",
+    "local:build": "npm run build && npm run check:links",
+    "netlify:build": "npm run build && npm run algolia:update-index"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.9.2",
