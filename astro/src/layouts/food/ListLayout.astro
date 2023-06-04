@@ -1,5 +1,6 @@
 ---
 import ListCard from "@components/food/ListCard.astro";
+import Banner from "@components/global/Banner.astro";
 import SearchBar from "@components/global/SearchBar.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import type { FoodWithPriceList } from "src/utils/api/food";
@@ -9,21 +10,27 @@ interface Props {
 }
 
 const { food } = Astro.props;
+const title = "All brands and food"
+const breadcrumbs = [
+  {
+    title,
+  }
+]
 ---
 
-<BaseLayout 
+<BaseLayout
   seo={{
-    title: "All brands and food",
-    
+    title: title,
   }}
 >
-  <SearchBar />
-  <div class="shop-page">
+  <Banner title={title} breadcrumbs={breadcrumbs} />
+  <div class="shop-page pt-120 mb-120">
+    <SearchBar />
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 mb-120">
+        <div class="col-lg-12">
           <div class="row g-4 justify-content-center">
-            {food.map((item) => <ListCard food={item}/>)}
+            {food.map((item) => <ListCard food={item} />)}
           </div>
         </div>
       </div>

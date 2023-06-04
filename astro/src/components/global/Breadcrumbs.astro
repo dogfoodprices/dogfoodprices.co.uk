@@ -1,0 +1,25 @@
+---
+import Breadcrumb from "./Breadcrumb.astro"
+
+export type BreadcrumbType = {
+  title: string;
+  path?: string;
+};
+
+interface Props {
+  breadcrumbs: BreadcrumbType[];
+}
+
+const { breadcrumbs } = Astro.props;
+---
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    {
+      breadcrumbs.map((breadcrumb) => (
+        <Breadcrumb title={breadcrumb.title} path={breadcrumb.path} />
+      ))
+    }
+  </ol>
+</nav>

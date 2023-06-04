@@ -1,21 +1,27 @@
 ---
-import { SEO } from "astro-seo";
+import Banner from "@components/global/Banner.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 const {
   frontmatter: { title },
 } = Astro.props;
+
+const breadcrumbs = [{ title }];
 ---
 
-<BaseLayout 
+<BaseLayout
   seo={{
     title: title,
-  }}>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="genarel-qustions-area mb-100">
-          <slot />
+  }}
+>
+  <Banner title={title} breadcrumbs={breadcrumbs} />
+  <div class="pt-120 mb-120">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="genarel-qustions-area mb-100">
+            <slot />
+          </div>
         </div>
       </div>
     </div>

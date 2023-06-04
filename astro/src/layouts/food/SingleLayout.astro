@@ -7,30 +7,45 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { formatCurrency } from "src/utils/formatting";
 import type { FoodWithPriceList } from "../../utils/api/food";
 import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
+import Banner from "@components/global/Banner.astro";
+import type { BreadcrumbType } from "@components/global/Breadcrumbs.astro";
 
 interface Props {
   food: FoodWithPriceList;
 }
 
-const {food} = Astro.props;
+const { food } = Astro.props;
 
-const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices).at(0)?.perKilo;
-let pageTitle = `${food.brand.name} ${food.name}`
+const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices).at(
+  0
+)?.perKilo;
+const bannerTitle = `${food.brand.name} ${food.name}`;
+let pageTitle = bannerTitle;
 if (bestPricePerKilo) {
-  pageTitle = `${pageTitle} from ${formatCurrency(bestPricePerKilo)} per kg`
+  pageTitle = `${pageTitle} from ${formatCurrency(bestPricePerKilo)} per kg`;
 }
+const breadcrumbs: BreadcrumbType[] = [
+  {
+    title: "All food",
+    path: "/food/",
+  },
+  {
+    title: bannerTitle,
+  },
+];
 ---
 
-<BaseLayout 
+<BaseLayout
   seo={{
     title: pageTitle,
-    description: `Find the cheapeast place to buy ${food.brand.name} ${food.name} online`
+    description: `Find the cheapeast place to buy ${food.brand.name} ${food.name} online`,
   }}
 >
   <JsonLdProduct food={food} />
 
-  <SearchBar />
-  <div class="shop-details-page mb-120">
+  <Banner title={bannerTitle} breadcrumbs={breadcrumbs} />
+  <div class="shop-details-page pt-120 mb-120">
+    <SearchBar />
     <div class="container">
       <div class="row g-lg-4 gy-5 mb-120">
         <ImageGallery front={food.images?.front} back={food.images?.back} />

@@ -1,0 +1,72 @@
+---
+import breadcrumbFoot from "@assets/images/banner/breadcrumb-foot-vec.png";
+import innerBannerBottom from "@assets/images/banner/inner-banner-btm-vec.png";
+import innerBanner from "@assets/images/banner/inner-banner-vec.png";
+import image from "@assets/images/banner/image.png";
+
+import { Image } from "@astrojs/image/components";
+import Breadcrumbs, { BreadcrumbType } from "./Breadcrumbs.astro";
+
+interface Props {
+  title: string;
+  breadcrumbs: BreadcrumbType[];
+}
+
+const { title, breadcrumbs } = Astro.props;
+
+const backgroundImageCss = `url(${breadcrumbFoot.src})`;
+---
+
+<style define:vars={{ backgroundImageCss }}>
+  .inner-page-banner .banner-content h1::after {
+    content: var(--backgroundImageCss) !important;
+  }
+</style>
+
+<div class="inner-page-banner">
+  <div class="breadcrumb-vec-btm">
+    <Image
+      class="img-fluid"
+      src={breadcrumbFoot}
+      height={102}
+      width={1914}
+      alt=""
+    />
+    <Image
+      class="img-fluid"
+      src={innerBannerBottom}
+      height={102}
+      width={1914}
+      alt=""
+    />
+  </div>
+  <div class="container">
+    <div class="row justify-content-center align-items-center text-center">
+      <div class="col-lg-8 align-items-center">
+        <div class="banner-content">
+          <h1>{title}</h1>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="banner-img d-lg-block d-none">
+          <div class="banner-img-bg">
+            <Image
+              class="img-fluid"
+              src={innerBanner}
+              height={353}
+              width={619}
+              alt=""
+            />
+          </div>
+          <Image
+            class="img-fluid"
+            src={image}
+            height={353}
+            alt="Orange and white dog, with a big grin, sits behind an empty food bowl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

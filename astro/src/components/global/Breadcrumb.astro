@@ -1,0 +1,24 @@
+---
+import type { BreadcrumbType } from "./Breadcrumbs.astro";
+import breadcrumbSeparator from "@assets/images/banner/breadcumb-vec.svg";
+
+interface Props extends BreadcrumbType {}
+
+const breadcrumbSeparatorCss = `url(${breadcrumbSeparator.src})`;
+const { title, path } = Astro.props;
+const isActive = !path;
+---
+
+<style define:vars={{ breadcrumbSeparatorCss }}>
+  .breadcrumb-item::before {
+    content: var(--breadcrumbSeparatorCss) !important;
+  }
+</style>
+
+<li
+  class:list={["breadcrumb-item", { active: isActive }]}
+  aria-current={isActive && "page"}
+>
+  {!isActive && <a href={path}>{title}</a>}
+  {isActive && title}
+</li>
