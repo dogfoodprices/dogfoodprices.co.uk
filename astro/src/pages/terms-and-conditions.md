@@ -16,7 +16,7 @@ If you do not agree to these terms of use, you must not use our site.
 
 These terms of use refer to the following additional terms, which also apply to your use of our site:
 
-Our [Privacy Policy](/privacy-polic/), which sets out the terms on which we process any personal data we collect from you, or that you provide to us. By using our site, you consent to such processing and you warrant that all data provided by you is accurate. 
+Our [Privacy Policy](/privacy-policy/), which sets out the terms on which we process any personal data we collect from you, or that you provide to us. By using our site, you consent to such processing and you warrant that all data provided by you is accurate. 
 
 Our [Cookie Policy](/cookie-policy/), which sets out information about the cookies on our site.
 
