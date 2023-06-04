@@ -3,7 +3,7 @@ layout: ../layouts/PageLayout.astro
 title: Cookie policy
 ---
 
-# Information About Our Use Of Cookies
+## Information About Our Use Of Cookies
 
 Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site. A cookie is a small file of letters and numbers that we store on your browser or the hard drive of your computer if you agree. Cookies contain information that is transferred to your computer's hard drive.
 
