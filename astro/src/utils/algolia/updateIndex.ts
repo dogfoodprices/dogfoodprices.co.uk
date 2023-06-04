@@ -94,6 +94,7 @@ async function allFoodForAlgolia() {
         ? imageBuilder
             .image(food.images.front)
             .size(80, 80)
+            .dpr(2)
             .ignoreImageParams()
             .url()
         : "",
