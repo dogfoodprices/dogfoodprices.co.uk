@@ -24,7 +24,6 @@ const imageBuilder = imageUrlBuilder(sanity)
 async function allFood(): Promise<FoodWithPriceList[]> {
   const filter = `*[
     _type == "food" && 
-    count(sellers[].prices[price != null]) > 0 &&
     !(_id in path("drafts.**"))
   ]`;
   const order = ``;
