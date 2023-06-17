@@ -6,18 +6,18 @@ export default {
     {
       name: 'name',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'website',
       type: 'string',
-      validation: Rule => Rule.required()
-    }
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: {
       title: 'name',
-      subtitle: 'website'
-    }
-  }
+      subtitle: 'website',
+    },
+  },
 };

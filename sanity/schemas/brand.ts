@@ -6,7 +6,7 @@ export default {
     {
       name: 'name',
       type: 'string',
-      validation: Rule => Rule.required()
-    }
-  ]
-}
+      validation: (Rule) => Rule.required(),
+    },
+  ],
+};

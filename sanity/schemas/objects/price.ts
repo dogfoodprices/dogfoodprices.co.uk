@@ -1,8 +1,4 @@
-const priceTypes = [
-  'One-off',
-  'Subscription',
-  'Subscription (first order)'
-]
+const priceTypes = ['One-off', 'Subscription', 'Subscription (first order)'];
 export default {
   name: 'price',
   title: 'Price',
@@ -10,45 +6,41 @@ export default {
   fields: [
     {
       name: 'weight',
-      type: 'number'
+      type: 'number',
     },
     {
       name: 'quantity',
-      type: 'number'
+      type: 'number',
     },
     {
       name: 'type',
       type: 'string',
       options: {
-        list: [
-          'One-off',
-          'Subscription',
-          'Subscription (first order)'
-        ],
-        layout: 'radio'
+        list: ['One-off', 'Subscription', 'Subscription (first order)'],
+        layout: 'radio',
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'price',
-      type: 'number'
+      type: 'number',
     },
     {
       name: 'url',
       title: 'URL',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'lastChecked',
       title: 'Last checked',
       type: 'date',
-      validation: Rule => Rule.required().warning()
+      validation: (Rule) => Rule.required().warning(),
     },
     {
       name: 'lastChanged',
       title: 'Last changed',
       type: 'date',
-      validation: Rule => Rule.required().warning()
+      validation: (Rule) => Rule.required().warning(),
     },
   ],
   preview: {
@@ -56,13 +48,13 @@ export default {
       weight: 'weight',
       quantity: 'quantity',
       type: 'type',
-      price: 'price'
+      price: 'price',
     },
     prepare({weight, quantity, type, price}) {
       if (!price) {
-        price = 'Out of stock'
+        price = 'Out of stock';
       } else {
-        price = `£${price}`
+        price = `£${price}`;
       }
 
       let quantityDisplay = '';
@@ -71,14 +63,14 @@ export default {
       }
       return {
         title: `${quantityDisplay}${weight}kg · ${price}`,
-        subtitle: type
+        subtitle: type,
       };
-    }
+    },
   },
   initialValue: {
     quantity: 1,
     type: 'One-off',
     lastChecked: new Date().toISOString().split('T')[0],
     lastChanged: new Date().toISOString().split('T')[0],
-  }
+  },
 };

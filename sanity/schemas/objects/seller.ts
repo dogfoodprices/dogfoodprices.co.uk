@@ -8,25 +8,25 @@ export default {
       type: 'reference',
       to: [
         {
-          type: 'sellerDetails'
-        }
+          type: 'sellerDetails',
+        },
       ],
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'prices',
       type: 'array',
       of: [
         {
-          type: 'price'
-        }
+          type: 'price',
+        },
       ],
-      validation: Rule => Rule.required()
-    }
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: {
       title: 'sellerDetails.name',
-    }
-  }
+    },
+  },
 };

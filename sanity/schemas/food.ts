@@ -1,13 +1,13 @@
-import type {Rule} from '@sanity/types'
+import type {Rule} from '@sanity/types';
 
 async function getNameForBrandReference(id: string, context: {getClient: any}) {
-  const {getClient} = context
-  const client = getClient({apiVersion: '2023-05-01'})
-  const query = '*[_type=="brand" && _id == $id][0]{name}'
-  const params = {id: id}
+  const {getClient} = context;
+  const client = getClient({apiVersion: '2023-05-01'});
+  const query = '*[_type=="brand" && _id == $id][0]{name}';
+  const params = {id: id};
   return client.fetch(query, params).then((brand: {name: string}) => {
-    return brand.name
-  })
+    return brand.name;
+  });
 }
 
 export default {
@@ -35,8 +35,8 @@ export default {
       type: 'slug',
       options: {
         source: async (doc: {brand: {_ref: string}; name: string}, context: {getClient: any}) => {
-          const brandName = await getNameForBrandReference(doc.brand._ref, context)
-          return `${brandName}-${doc.name}`
+          const brandName = await getNameForBrandReference(doc.brand._ref, context);
+          return `${brandName}-${doc.name}`;
         },
       },
       validation: (Rule: Rule) => Rule.required(),
@@ -87,4 +87,4 @@ export default {
       media: 'images.front',
     },
   },
-}
+};
