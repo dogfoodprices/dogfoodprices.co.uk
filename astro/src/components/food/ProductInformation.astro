@@ -11,7 +11,8 @@ interface Props {
 const {
   food: { brand, name, prices },
 } = Astro.props;
-const bestPricePerKilo = sortPriceListPricesByPricePerKilo(prices).at(0)?.perKilo;
+const bestPricePerKilo =
+  sortPriceListPricesByPricePerKilo(prices).at(0)?.perKilo;
 ---
 
 <style>
@@ -27,13 +28,12 @@ const bestPricePerKilo = sortPriceListPricesByPricePerKilo(prices).at(0)?.perKil
       <span>{brand.name}</span>
     </div>
     <div class="price-tag">
-      {bestPricePerKilo &&
-      <h4>from {formatCurrency(bestPricePerKilo)} per kg</h4>
-      ||
-      <h4>Out of stock</h4>}
+      {
+        (bestPricePerKilo && (
+          <h4>from {formatCurrency(bestPricePerKilo)} per kg</h4>
+        )) || <h4>Out of stock</h4>
+      }
     </div>
-    <div>
-      <PriceTable prices={prices} />
-    </div>
+    <div>{prices.length > 0 && <PriceTable prices={prices} />}</div>
   </div>
 </div>
