@@ -69,7 +69,7 @@ export async function allFood(): Promise<FoodWithPriceList[]> {
     name,
     "slug": slug.current,
     images,
-    sellers[] {
+    sellers[sellerDetails->include == true] {
       "seller": sellerDetails-> {
           name
       },

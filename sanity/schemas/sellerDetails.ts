@@ -13,7 +13,16 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'include',
+      title: 'Include on website',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    }
   ],
+  initialValue: {
+    include: true,
+  },
   preview: {
     select: {
       title: 'name',
