@@ -57,20 +57,20 @@ export default {
         price = `£${price}`;
       }
 
-      let quantityDisplay = '';
+      let weightDisplay = `${weight}kg`;
       if (quantity > 1) {
-        quantityDisplay = `${quantity} x `;
+        weightDisplay = `${quantity} x ${weight}kg (${quantity * weight}kg)`;
       }
       return {
-        title: `${quantityDisplay}${weight}kg · ${price}`,
+        title: `${weightDisplay} · ${price}`,
         subtitle: type,
       };
     },
   },
-  initialValue: {
-    quantity: 1,
-    type: 'One-off',
-    lastChecked: new Date().toISOString().split('T')[0],
-    lastChanged: new Date().toISOString().split('T')[0],
-  },
+  // initialValue: {
+  //   quantity: 1,
+  //   type: 'One-off',
+  //   lastChecked: new Date().toISOString().split('T')[0],
+  //   lastChanged: new Date().toISOString().split('T')[0],
+  // },
 };
