@@ -26,7 +26,14 @@ export default {
   ],
   preview: {
     select: {
-      title: 'sellerDetails.name',
+      name: 'sellerDetails.name',
+      include: 'sellerDetails.include'
+    },
+    prepare({name, include}) {
+      const icon = include ? '🟢' : '🔴'
+      return {
+        title: `${icon} ${name}`,
+      };
     },
   },
 };
