@@ -1,4 +1,3 @@
-const priceTypes = ['One-off', 'Subscription', 'Subscription (first order)'];
 export default {
   name: 'price',
   title: 'Price',
