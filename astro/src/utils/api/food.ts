@@ -1,4 +1,5 @@
 import { useSanityClient, groq } from "astro-sanity";
+import type { TypedObject } from "@portabletext/types";
 
 interface SellerPrice {
   weight: number;
@@ -30,6 +31,7 @@ export interface Food {
   brand: {
     name: string;
   };
+  description: TypedObject | TypedObject[] | undefined;
   images: {
     front: SanityImage | undefined;
     back: SanityImage | undefined;
@@ -53,9 +55,9 @@ export interface FoodWithPriceList extends Food {
 }
 
 interface AlgoliaFoodRecord {
-  brand: string
-  name: string
-  priceFrom: string
+  brand: string;
+  name: string;
+  priceFrom: string;
 }
 
 export async function allFood(): Promise<FoodWithPriceList[]> {
@@ -67,6 +69,7 @@ export async function allFood(): Promise<FoodWithPriceList[]> {
       name
     },
     name,
+    description,
     "slug": slug.current,
     images,
     sellers[sellerDetails->include == true] {

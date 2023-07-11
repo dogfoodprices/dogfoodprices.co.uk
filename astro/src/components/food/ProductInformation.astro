@@ -3,13 +3,13 @@ import type { FoodWithPriceList } from "../../utils/api/food";
 import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
 import { formatCurrency } from "../../utils/formatting";
 import PriceTable from "./PriceTable.astro";
-
+import { PortableText } from "astro-portabletext";
 interface Props {
   food: FoodWithPriceList;
 }
 
 const {
-  food: { brand, name, prices },
+  food: { brand, name, prices, description },
 } = Astro.props;
 const bestPricePerKilo =
   sortPriceListPricesByPricePerKilo(prices).at(0)?.perKilo;
@@ -18,6 +18,18 @@ const bestPricePerKilo =
 <style>
   .price-tag > h4 {
     font-size: 2rem !important;
+  }
+
+  .shop-details-content li {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #868686 !important;
+    font-family: var(--font-cabin);
+    letter-spacing: 0.03em;
+  }
+
+  .shop-details-content ul {
+    margin-bottom: 0;
   }
 </style>
 
@@ -34,6 +46,7 @@ const bestPricePerKilo =
         )) || <h4>Out of stock</h4>
       }
     </div>
+    {description && <PortableText value={description} />}
     <div>{prices.length > 0 && <PriceTable prices={prices} />}</div>
   </div>
 </div>

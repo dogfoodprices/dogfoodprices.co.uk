@@ -48,6 +48,16 @@ export default {
       validation: (Rule: Rule) => Rule.required(),
     },
     {
+      title: 'Description',
+      name: 'description',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+    {
       title: 'Images',
       name: 'images',
       type: 'object',
