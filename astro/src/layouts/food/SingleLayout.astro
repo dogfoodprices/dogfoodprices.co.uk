@@ -4,9 +4,7 @@ import JsonLdProduct from "@components/food/JsonLdProduct.astro";
 import ProductInformation from "@components/food/ProductInformation.astro";
 import SearchBar from "@components/global/SearchBar.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { formatCurrency } from "src/utils/formatting";
 import type { FoodWithPriceList } from "../../utils/api/food";
-import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
 import Banner from "@components/global/Banner.astro";
 import type { BreadcrumbType } from "@components/global/Breadcrumbs.astro";
 
@@ -16,14 +14,9 @@ interface Props {
 
 const { food } = Astro.props;
 
-const bestPricePerKilo = sortPriceListPricesByPricePerKilo(food.prices).at(
-  0
-)?.perKilo;
 const bannerTitle = `${food.brand.name} ${food.name}`;
 let pageTitle = bannerTitle;
-if (bestPricePerKilo) {
-  pageTitle = `${pageTitle} from ${formatCurrency(bestPricePerKilo)} per kg`;
-}
+
 const breadcrumbs: BreadcrumbType[] = [
   {
     title: "All food",
