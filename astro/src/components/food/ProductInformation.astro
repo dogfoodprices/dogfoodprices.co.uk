@@ -3,7 +3,7 @@ import type { FoodWithPriceList } from "../../utils/api/food";
 import { sortPriceListPricesByPricePerKilo } from "../../utils/collections";
 import { formatCurrency } from "../../utils/formatting";
 import PriceTable from "./PriceTable.astro";
-import { PortableText } from "astro-portabletext";
+import { portableTextToHtml } from "astro-sanity";
 interface Props {
   food: FoodWithPriceList;
 }
@@ -19,7 +19,16 @@ const bestPricePerKilo =
   .price-tag > h4 {
     font-size: 2rem !important;
   }
+</style>
 
+{/* 
+  astro-sanity's portableTextToHtml doesn't include the component ID in the fragment
+  so it can only be styled globally.
+
+  astro-portabletext does, but it requires a newer version of @portabletext/toolkit than
+  astro-sanity specifies. I couldn't get that working.
+*/}
+<style is:global>
   .shop-details-content li {
     font-size: 1rem;
     font-weight: 400;
@@ -46,7 +55,7 @@ const bestPricePerKilo =
         )) || <h4>Out of stock</h4>
       }
     </div>
-    {description && <PortableText value={description} />}
+    {description && <Fragment set:html={portableTextToHtml(description)} />}
     <div>{prices.length > 0 && <PriceTable prices={prices} />}</div>
   </div>
 </div>
