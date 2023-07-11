@@ -67,10 +67,10 @@ export default {
       };
     },
   },
-  // initialValue: {
-  //   quantity: 1,
-  //   type: 'One-off',
-  //   lastChecked: new Date().toISOString().split('T')[0],
-  //   lastChanged: new Date().toISOString().split('T')[0],
-  // },
+  initialValue: {
+    quantity: 1,
+    type: 'One-off',
+    lastChecked: new Date().toISOString().split('T')[0],
+    lastChanged: new Date().toISOString().split('T')[0],
+  },
 };
